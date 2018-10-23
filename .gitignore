@@ -1,3 +1,10 @@
 .idea/
 Scripts/gamesapi/gamesapi/__pycache__/
 Scripts/gamesapi/games/__pycache__/
+Scripts/activate.bat
+Scripts/gamesapi/games/__pycache__/views.cpython-36.pyc
+Scripts/gamesapi/games/__pycache__/urls.cpython-36.pyc
+Scripts/gamesapi/gamesapi/__pycache__/wsgi.cpython-36.pyc
+*.pyc
+Scripts/gamesapi/db.sqlite3
+
