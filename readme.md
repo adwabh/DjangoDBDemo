@@ -1,5 +1,15 @@
+
+
+Section 6
+============================
+lecture 25:
+1. Customizing permission class
+2. Listing all users
+3. Retrieving details for single user 
+
 Summary
 ============================
+
 1. Designed RESTFul API to Interact with simple SQLite database
 2. Defined requirements for our API
 3. Set up a viretual envronment with Django REST Framework
@@ -20,4 +30,3 @@ Steps for initializing Django Project
 8. Execute command 'python <Path/><Folder>/Scripts/django-admin.py startproject <NAME_OF_PROJECT_HERE>'
 9. Navigate to the <NAME_OF_PROJECT> folder generated in step 9
 10. Execute command 'python manage.py startapp <NAME_OF_APP>' this will create <NAME_OF_PROJECT>/<NAME_OF_APP> and rest of framework files and folders
-

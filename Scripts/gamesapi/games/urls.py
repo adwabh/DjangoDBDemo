@@ -30,7 +30,14 @@ urlpatterns = [
         name=views.PlayerScoreDetail.name),
     url(r'^$',
         views.ApiRoot.as_view(),
-        name=views.ApiRoot.name)
+        name=views.ApiRoot.name),
+        #Added in lecture 25
+    url(r'^users/$',
+        views.UserList.as_view(),
+        name = views.UserList.name),
+    url(r'^users/(?P<pk>[0-9]+)/$)',
+        views.UserDetail.as_view(),
+        name = views.UserDetail.name),
 ]
 
 
