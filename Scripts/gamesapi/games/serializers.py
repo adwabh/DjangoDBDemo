@@ -5,6 +5,23 @@ from games.models import Game
 from games.models import Player
 from games.models import PlayerScore
 
+class UserGameSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Game
+        fields = (
+        'url',
+        'name')
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    games = UserGameSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = USER
+        fields = (
+        'url',
+        'pk',
+        'username',
+        'games')
 
 class GameCategorySerializer(serializers.HyperlinkedModelSerializer):
     games = serializers.HyperlinkedRelatedField(
@@ -21,6 +38,8 @@ class GameCategorySerializer(serializers.HyperlinkedModelSerializer):
             'games')
 
 class GameSerializer(serializers.HyperlinkedModelSerializer):
+    # We just want to display the owner username (read-only)
+    owner = serializers.ReadOnlyField(source = 'owner.username')
     # We want to display the game cagory's name instead of the id
     game_category = serializers.SlugRelatedField(queryset=GameCategory.objects.all(), slug_field='name')
 
@@ -93,7 +112,7 @@ class PlayerScoreSerializer(serializers.ModelSerializer):
 #                   'game_category',
 #                   'played')
 
-# lecture 2 game serializer class definition  
+# lecture 2 game serializer class definition
 # class GameSerializer(serializers.Serializer):
 #     pk = serializers.IntegerField(read_only=True)
 #     name = serializers.CharField(max_length=200)
