@@ -1,18 +1,20 @@
 
-
 Section 6
 ============================
-lecture 25:
+Lecture 26:
+Configured permission policies
+
+Lecture 25:
 1. Customizing permission class
 2. Listing all users
-3. Retrieving details for single user 
+3. Retrieving details for single user
 
 Summary
 ============================
 
 1. Designed RESTFul API to Interact with simple SQLite database
 2. Defined requirements for our API
-3. Set up a viretual envronment with Django REST Framework
+3. Set up a virtual environment with Django REST Framework
 4. Created model to represent and persist game information
 5. Executed migrations in Django
 6. Managed serialization and de-serialization of game instances
