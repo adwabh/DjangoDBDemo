@@ -41,7 +41,12 @@ class GameList(generics.ListCreateAPIView):
     queryset = Game.objects.all()
     serializer_class = GameSerializer
     name = 'game-list'
- #changed in lecture 25
+    #added in lecture 26
+    permission_classes = (
+    permissions.IsAuthenticatedOrReadOnly,
+    IsOwnerOrReadOnly,
+    )
+    #changed in lecture 25
     def perform_create(self, serializer):
         # Pass an additional owner field to create method
         # To set the owner to the user received in the request
@@ -52,6 +57,11 @@ class GameDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Game.objects.all()
     serializer_class = GameSerializer
     name = 'game-detail'
+    # added in lecture 26
+    permission_classes = (
+    permissions.IsAuthenticatedOrReadOnly,
+    IsOwnerOrReadOnly,
+    )
 
 
 class PlayerList(generics.ListCreateAPIView):

@@ -4,24 +4,27 @@ from games.models import GameCategory
 from games.models import Game
 from games.models import Player
 from games.models import PlayerScore
+from django.contrib.auth.models import User
 #added in lecture 24
 class UserGameSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Game
         fields = (
-        'url',
-        'name')
+            'url',
+            'name')
+
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     games = UserGameSerializer(many=True, read_only=True)
 
     class Meta:
-        model = USER
+        model = User
         fields = (
-        'url',
-        'pk',
-        'username',
-        'games')
+            'url',
+            'pk',
+            'username',
+            'games')
+
 
 class GameCategorySerializer(serializers.HyperlinkedModelSerializer):
     games = serializers.HyperlinkedRelatedField(
@@ -49,6 +52,7 @@ class GameSerializer(serializers.HyperlinkedModelSerializer):
         model = Game
         fields = (
             'url',
+			'owner',
             'game_category',
             'name',
             'release_date',
@@ -65,7 +69,9 @@ class ScoreSerializer(serializers.HyperlinkedModelSerializer):
             'pk',
             'score',
             'score_date',
-            'game')
+            'game',
+            )
+
 
 class PlayerSerializer(serializers.HyperlinkedModelSerializer):
     scores = ScoreSerializer(many=True, read_only=True)
@@ -82,7 +88,9 @@ class PlayerSerializer(serializers.HyperlinkedModelSerializer):
             'name',
             'gender',
             'gender_description',
-            'scores')
+            'scores',
+            )
+
 
 class PlayerScoreSerializer(serializers.ModelSerializer):
     player = serializers.SlugRelatedField(queryset=Player.objects.all(), slug_field='name')
@@ -97,7 +105,7 @@ class PlayerScoreSerializer(serializers.ModelSerializer):
             'score',
             'score_date',
             'player',
-            'game')
+            'game',)
 
 
 

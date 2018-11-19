@@ -35,7 +35,7 @@ urlpatterns = [
     url(r'^users/$',
         views.UserList.as_view(),
         name = views.UserList.name),
-    url(r'^users/(?P<pk>[0-9]+)/$)',
+    url(r'^users/(?P<pk>[0-9]+)/$',
         views.UserDetail.as_view(),
         name = views.UserDetail.name),
 ]
