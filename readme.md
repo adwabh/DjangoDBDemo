@@ -1,5 +1,11 @@
 Section 7
 ============================
+Lecture 31:
+1. Customizing filtering
+2. searching
+3. Sorting capabilities
+
+
 1. Configuring throttling policies
 2. Testing throttling policies
 3. Understanding filtering, searching and ordering classes
