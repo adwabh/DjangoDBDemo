@@ -1,3 +1,10 @@
+Section 7
+============================
+1. Configuring throttling policies
+2. Testing throttling policies
+3. Understanding filtering, searching and ordering classes
+4. Configuring filtering, searching and ordering for views
+5. Testing filtering, searching and ordering
 
 Section 6
 ============================

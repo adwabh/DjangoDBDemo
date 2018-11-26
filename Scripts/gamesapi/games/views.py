@@ -14,6 +14,7 @@ from django.contrib.auth.models import User
 from games.serializers import UserSerializer
 from rest_framework import permissions
 from games.permissions import IsOwnerOrReadOnly
+from rest_framework.throttling import ScopedRateThrottle
 
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
@@ -29,12 +30,16 @@ class GameCategoryList(generics.ListCreateAPIView):
     queryset = GameCategory.objects.all()
     serializer_class = GameCategorySerializer
     name = 'gamecategory-list'
+    throttle_scope = 'game-categories'
+    throttle_classes = (ScopedRateThrottle,)
 
 
 class GameCategoryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = GameCategory.objects.all()
     serializer_class = GameCategorySerializer
     name = 'gamecategory-detail'
+    throttle_scope = 'game-categories'
+    throttle_classes = (ScopedRateThrottle,)
 
 
 class GameList(generics.ListCreateAPIView):
