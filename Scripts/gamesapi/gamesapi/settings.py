@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     #Added in lecture 31
     #Crispy forms
     'crispy_forms',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -133,9 +134,9 @@ REST_FRAMEWORK = {
     'PAGE_SIZE':5,
     #Added in lecture 31
     'DEFAULT_FILTER_BACKENDS':(
-        'rest_framework.filters.DjangoFilterBackend',
-        'rest_framework.filters.SearchFilter',
-        'rest_framework.filters.OrderingFilter',
+    'django_filters.rest_framework.DjangoFilterBackend',
+    'rest_framework.filters.SearchFilter',
+    'rest_framework.filters.OrderingFilter',
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
     'rest_framework.authentication.BasicAuthentication',

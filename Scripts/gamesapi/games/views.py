@@ -17,6 +17,7 @@ from games.permissions import IsOwnerOrReadOnly
 from rest_framework.throttling import ScopedRateThrottle
 from rest_framework import filters
 from django_filters import NumberFilter, DateTimeFilter, AllValuesFilter
+import django_filters.rest_framework
 
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
@@ -113,7 +114,7 @@ class PlayerDetail(generics.RetrieveUpdateDestroyAPIView):
     name = 'player-detail'
 
 #Added in lecture 32
-class PlayerScoreFilter(filters.FilterSet):
+class PlayerScoreFilter(django_filters.rest_framework.FilterSet):
     min_score = NumberFilter(
     name = 'score',lookup_expr='gte')
     max_score = NumberFilter(
