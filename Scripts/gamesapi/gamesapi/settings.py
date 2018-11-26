@@ -133,7 +133,7 @@ REST_FRAMEWORK = {
     'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_THROTTLE_CLASSES':(
-        'rest_framework.throttling.AnonRateTrrottle',
+        'rest_framework.throttling.AnonRateThrottle',
         'rest_framework.throttling.UserRateThrottle',
     ),
     'DEFAULT_THROTTLE_RATES': {

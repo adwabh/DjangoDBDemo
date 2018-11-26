@@ -26,12 +26,31 @@ Summary
 5. Executed migrations in Django
 6. Managed serialization and de-serialization of game instances
 
+
+Steps for creating a 'postgres' database
+=========================================
+1. psql -U postgres
+2. create database <NAME_OF_DATABASE>
+
+Creating a user in postgres
+============================
+1. create role <NAME_OF_USER> with login password '<PASSWORD_FOR_USER>';
+2. to list users : use command '\du'
+3. to grant privileges to user 'grant all privileges on database games to test1;'
+4. Use '\l' to verify privileges
+
+Steps for Migrations
+=====================
+1. python <SOURCE>/Scripts/<PROJECT_NAME>/manage.py makemigrations
+2. python <SOURCE>/Scripts/<PROJECT_NAME>/manage.py migrate
+3. to check tables use 'psql --username=test1 --dbname=games --command="\dt"'
+
 Steps for initializing Django Project
 =====================================
 
 1. Create Folder
-2. Navigate to folder in commad prompt/terminal
-3. Create virtul environment with the command 'pythom -m venv'
+2. Navigate to folder in command prompt/terminal
+3. Create virtual environment with the command 'python -m venv'
 4. Navigate to <Path/><Folder>/Scripts created in step 3 above
 5. Execute activate/activate.bat to start virtual environment
 6. Execute command 'pip install django' to install django
