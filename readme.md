@@ -32,15 +32,10 @@ Summary
 5. Executed migrations in Django
 6. Managed serialization and de-serialization of game instances
 
-Steps for Generating requirements.txt
-======================================
-1. pip freeze > requirements.txt
 
-Steps for Testing
-==================
-1. python manage.py test -v 2
-2. coverage report -m
-3. coverage html
+Steps for deployment
+=====================
+1.
 
 Steps for creating a 'postgres' database
 =========================================
